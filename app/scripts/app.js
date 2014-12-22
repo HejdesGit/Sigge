@@ -93,7 +93,7 @@ module.exports = (function () {
   }
 
   function Init() {
-    $("html").click(function (event) {
+    $("html").on( "click touchstart", function (event) {
       event.stopPropagation();
       event.preventDefault();
       if (!running) {
