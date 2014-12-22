@@ -14,7 +14,6 @@ gulp.task('vendor', function() {
   return browserify({debug: true})
     .require('jquery')
     .require('lodash', {expose: 'underscore'})
-    .require('backbone')
     .bundle()
     .pipe(source('vendor.js'))
     .pipe(gulp.dest(config.dist + '/scripts/'));

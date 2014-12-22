@@ -43,21 +43,21 @@ module.exports = (function () {
     urls: [config.urls],
     sprite: {
       0: [0, 3400],
-      1: [3400, 4000],
+      1: [3400, 4100],
       2: [7600, 3000],
       3: [10500, 3000],
-      4: [13500,  3500],
-      5: [17000,  2500],
+      4: [13500, 3500],
+      5: [17000, 2500],
       6: [19500, 3500],
-      7: [23000, 3000 ],
-      8: [26500,  3500],
-      9: [30000,  4000],
-      10: [34500, 4900],
-      11: [39000,  4200],
-      12: [43500, 4500],
+      7: [23000, 3000],
+      8: [26500, 3500],
+      9: [30000, 4000],
+      10: [34500, 4600],
+      11: [39000, 4200],
+      12: [43200, 4500],
       13: [48000, 4400],
-      14: [52000,  4500],
-      15: [57000,  5500]
+      14: [52500, 4500],
+      15: [57000, 5500]
     },
     onend: function () {
       running = false;
@@ -68,7 +68,14 @@ module.exports = (function () {
 
   function nextAnimal() {
     count = randomAnimal();
-    $(".animal img").attr('src', "images/" + animals[count] + ".jpg");
+    //$(".animal img").attr('src', "images/" + animals[count] + ".jpg");
+    //$("body").css( "background", "url(images/" + animals[count] + ".jpg) no-repeat center center fixed;");
+    var imag = 'images/' + animals[count] + '.jpg';
+    $('body').css('background', 'url("' + imag + '") no-repeat center center fixed');
+    $('body').css('-webkit-background-size', 'cover');
+    $('body').css('-moz-background-size', 'cover');
+    $('body').css(' -o-background-size', 'cover');
+    $('body').css('background-size', 'cover');
   }
 
   function randomAnimal() {
@@ -86,7 +93,7 @@ module.exports = (function () {
   }
 
   function Init() {
-    $(".animal").click(function (event) {
+    $("html").click(function (event) {
       event.stopPropagation();
       event.preventDefault();
       if (!running) {
